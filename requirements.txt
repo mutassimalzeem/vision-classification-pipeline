@@ -1,0 +1,13 @@
+# Project dependency plan
+# Add versions after implementation begins.
+
+numpy
+pandas
+matplotlib
+scikit-learn
+tensorflow
+keras
+fastapi
+uvicorn
+python-multipart
+pydantic
