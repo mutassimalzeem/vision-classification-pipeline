@@ -50,25 +50,26 @@ Instead of only optimizing accuracy, this project focuses on the complete engine
 
 ```mermaid
 flowchart TD
-  A[Raw pixel data (28x28 flattened 784 values)] --> B[Data Understanding & Preprocessing]
-  B --> C[Train-validation split]
-  C --> D[Baseline modeling (Dense NN)]
-  C --> E[CNN modeling (Conv/Pool + Dense)]
-  E --> F[Augmentation & regularization]
-  F --> G[Model training (final CNN)]
+  A["Raw pixel data<br/>28x28 flattened, 784 values"] --> B["Data understanding<br/>and preprocessing"]
+  B --> C["Train-validation split"]
 
-  G --> H[Evaluation & Error Analysis]
-  H --> I[Confusion matrix + classification report]
-  I --> J[Misclassified sample analysis]
+  C --> D["Baseline modeling<br/>Dense neural network"]
+  C --> E["CNN modeling<br/>Conv/Pool + Dense"]
+  E --> F["Augmentation<br/>and regularization"]
+  F --> G["Model training<br/>final CNN"]
 
-  G --> K[Inference packaging]
-  K --> L[Inference preprocessing (must match training)]
-  L --> M[Prediction (probabilities + confidence)]
+  G --> H["Evaluation<br/>and error analysis"]
+  H --> I["Confusion matrix<br/>and classification report"]
+  I --> J["Misclassified<br/>sample analysis"]
 
-  M --> N[Inference API: POST /predict]
-  N --> O[Deployment-ready contract & docs]
+  G --> K["Inference packaging"]
+  K --> L["Inference preprocessing<br/>must match training"]
+  L --> M["Prediction<br/>probabilities + confidence"]
 
-  O --> P[Portfolio packaging (case study + summaries)]
+  M --> N["Inference API<br/>POST /predict"]
+  N --> O["Deployment-ready<br/>contract and docs"]
+
+  O --> P["Portfolio packaging<br/>case study and summaries"]
 
   %% Documentation pointers
   %% - docs/02_data_understanding/* for preprocessing plan
