@@ -46,6 +46,39 @@ Instead of only optimizing accuracy, this project focuses on the complete engine
 7. Design an inference API.
 8. Document the complete system as a portfolio-ready case study.
 
+## System Architecture (End-to-End Pipeline)
+
+```mermaid
+flowchart TD
+  A[Raw pixel data (28x28 flattened 784 values)] --> B[Data Understanding & Preprocessing]
+  B --> C[Train-validation split]
+  C --> D[Baseline modeling (Dense NN)]
+  C --> E[CNN modeling (Conv/Pool + Dense)]
+  E --> F[Augmentation & regularization]
+  F --> G[Model training (final CNN)]
+
+  G --> H[Evaluation & Error Analysis]
+  H --> I[Confusion matrix + classification report]
+  I --> J[Misclassified sample analysis]
+
+  G --> K[Inference packaging]
+  K --> L[Inference preprocessing (must match training)]
+  L --> M[Prediction (probabilities + confidence)]
+
+  M --> N[Inference API: POST /predict]
+  N --> O[Deployment-ready contract & docs]
+
+  O --> P[Portfolio packaging (case study + summaries)]
+
+  %% Documentation pointers
+  %% - docs/02_data_understanding/* for preprocessing plan
+  %% - docs/04_modeling_strategy/* for model strategy
+  %% - docs/05_evaluation/* for evaluation/error analysis
+  %% - docs/06_inference_api/* for inference + API contract
+  %% - docs/08_portfolio_case_study/* for final writeups
+```
+
+
 ## Repository Structure
 
 ```text
