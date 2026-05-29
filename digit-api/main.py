@@ -1,19 +1,23 @@
 from pathlib import Path
-from fastapi import FastAPI, UploadFile, File
-from tensorflow import keras
-from PIL import Image
-import numpy as np
 import io
+
+import numpy as np
+from fastapi import FastAPI, File, UploadFile
+from PIL import Image
+from tensorflow import keras
+
 
 app = FastAPI()
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "digit_model.h5"
+MODEL_PATH = BASE_DIR / "model" / "digit_model.h5"
 model = keras.models.load_model(MODEL_PATH)
+
 
 @app.get("/")
 async def root():
     return {"message": "Digit classifier API is running"}
+
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
